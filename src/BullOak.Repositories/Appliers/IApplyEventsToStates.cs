@@ -6,10 +6,7 @@
 
     public interface IApplyEventsToStates
     {
-        IEnumerable<Type> SupportedStateTypes { get; }
-
-        object Apply(Type stateType, object state, ItemWithType[] events);
-        object Apply(Type stateType, object state, IEnumerable<ItemWithType> events);
-        object ApplyEvent(Type stateType, object state, ItemWithType @event);
+        object Apply(Type stateType, object state, IEnumerable<object> events);
+        object ApplyEvent(Type stateType, object state, object @event);
     }
 }

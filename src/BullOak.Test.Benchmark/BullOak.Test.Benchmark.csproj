@@ -148,6 +148,7 @@
     <Compile Include="Behavioural\LoadAggregateOneEventNoChildsBenchmark.cs" />
     <Compile Include="Behavioural\EditChildEntitiesBenchmark.cs" />
     <Compile Include="Behavioural\TestClass.cs" />
+    <Compile Include="Profiling\DynamicVsMakeGeneric.cs" />
     <Compile Include="Profiling\EventCollectionBenchmark.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using BenchmarkDotNet.Running;
     using BullOak.Test.Benchmark.Behavioural;
+    using BullOak.Test.Benchmark.Profiling;
 
     class Program
     {
@@ -68,13 +69,14 @@
         {
             var benchmarks = new List<Benchmark>();
 
+            benchmarks.AddRange(BenchmarkConverter.TypeToBenchmarks(typeof(DynamicVsMakeGeneric)));
 
             //benchmarks.AddRange(BenchmarkConverter.TypeToBenchmarks(typeof(CodeTests)));
 
-            benchmarks.AddRange(BenchmarkConverter.TypeToBenchmarks(typeof(SaveAggregateBenchmark)));
-            benchmarks.AddRange(BenchmarkConverter.TypeToBenchmarks(typeof(LoadAggregateWithChildEntitiesBenchmark)));
-            benchmarks.AddRange(BenchmarkConverter.TypeToBenchmarks(typeof(EditChildEntitiesBenchmark)));
-            benchmarks.AddRange(BenchmarkConverter.TypeToBenchmarks(typeof(RepoBasedWithVariableReconstitutors)));
+            //benchmarks.AddRange(BenchmarkConverter.TypeToBenchmarks(typeof(SaveAggregateBenchmark)));
+            //benchmarks.AddRange(BenchmarkConverter.TypeToBenchmarks(typeof(LoadAggregateWithChildEntitiesBenchmark)));
+            //benchmarks.AddRange(BenchmarkConverter.TypeToBenchmarks(typeof(EditChildEntitiesBenchmark)));
+            //benchmarks.AddRange(BenchmarkConverter.TypeToBenchmarks(typeof(RepoBasedWithVariableReconstitutors)));
 
             //benchmarks.AddRange(BenchmarkConverter.TypeToBenchmarks(typeof(LoadAggregateOneEventNoChildsBenchmark)));
             //benchmarks.AddRange(BenchmarkConverter.TypeToBenchmarks(typeof(SaveChildEntityBenchmark)));

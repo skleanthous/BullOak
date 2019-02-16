@@ -19,7 +19,6 @@ namespace BullOak.Repositories.Session
         TState GetCurrentState();
 
         void AddEvents(IEnumerable<object> events);
-        void AddEvents(object[] events);
         void AddEvent(object @event);
         void AddEvent<TEvent>(Action<TEvent> initializeEventAction);
 

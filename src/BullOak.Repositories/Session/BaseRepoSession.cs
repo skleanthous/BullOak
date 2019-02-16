@@ -48,33 +48,15 @@
         {
             if (events == null) throw new ArgumentNullException(nameof(events));
 
-            foreach (var @event in events.Select(x=> new ItemWithType(x)))
-                NewEventsCollection.Add(@event);
-
-            currentState =
-                (TState) EventApplier.Apply(stateType, currentState, events.Select(x => new ItemWithType(x)));
-        }
-
-        public void AddEvents(object[] events)
-        {
-            if (events == null) throw new ArgumentNullException(nameof(events));
-
-            for (int i = 0; i < events.Length; i++)
-                NewEventsCollection.Add(new ItemWithType(events[i]));
-
-            currentState =
-                (TState) EventApplier.Apply(stateType, currentState, events.Select(x => new ItemWithType(x)));
+            foreach (var @event in events.Select(x => new ItemWithType(x)))
+                AddEventInternal(@event);
         }
 
         public void AddEvent(object @event)
         {
-            if (@event is ICollection eventCollection)
-            {
-                object[] eventArray = new object[eventCollection.Count];
-                eventCollection.CopyTo(eventArray, 0);
-                AddEvents(eventArray);
-            }
-            else if (@event is IEnumerable<object> events)
+            if (@event == null) throw new ArgumentNullException(nameof(@event));
+
+            if (@event is IEnumerable<object> events)
                 AddEvents(events);
             else
                 AddEventInternal(new ItemWithType(@event));

@@ -14,7 +14,7 @@
         TState Apply(TState state, object @event);
     }
 
-    public interface IApplyEvent<TState, in TEvent>
+    public interface IApplyEvent<TState, TEvent>
     {
         TState Apply(TState state, TEvent @event);
     }
